@@ -1,0 +1,39 @@
+-- USERS
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    telegram_id TEXT UNIQUE,
+    name TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- PROFILE MEMORIES
+
+CREATE TABLE memories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    memory_key TEXT,
+    memory_value TEXT,
+    importance INTEGER DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CHAT HISTORY
+
+CREATE TABLE conversations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    role TEXT,
+    content TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- DOCUMENTS
+
+CREATE TABLE documents (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    filename TEXT,
+    filepath TEXT,
+    uploaded_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
