@@ -15,3 +15,14 @@ CREATE TABLE IF NOT EXISTS users (
 """)
 
 conn.commit()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS memories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    memory_key TEXT,
+    memory_value TEXT
+)
+""")
+
+conn.commit()
